@@ -1,6 +1,9 @@
 # fastjam
 C++ scene-based physics + rendering engine. Compiles to JS and native.
 
+## Build instructions
+Coming soon.
+
 ## Planned features
 - 2D rendering through SDL
 - Scene-based game logic with a central controller for persistency
