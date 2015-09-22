@@ -1,5 +1,6 @@
 #include "unittests.h"
 #include "../common/logger.h"
+#include "../engine/gridscene.h"
 
 using namespace std;
 #define TESTPARAMS FUNCLINE, engine
@@ -15,12 +16,18 @@ UnitTests::UnitTests()
 void UnitTests::run()
 {
 	initTest();
+	initSceneTest();
 
 	printResults();
+}
+
+void UnitTests::initSceneTest()
+{
+	TESTINIT;
+	GridScene sc;
 }
 
 void UnitTests::initTest()
 {
 	TESTINIT;
-	FAIL;
 }

@@ -19,6 +19,7 @@ private:
 	}
 
 	void initTest();
+	void initSceneTest();
 
 	void test(bool val, std::string msg)
 	{
