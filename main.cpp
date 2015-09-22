@@ -2,13 +2,13 @@
 #include "engine/engine.h"
 
 #ifdef __EMSCRIPTEN__
-#include <emscripten.h>
-#include<sdl/sdl.h>
+#include<SDL.h>
+#include<emscripten.h>
 #else
 #ifdef WINDOWS
 #include "SDL2/include/SDL.h"
 #else
-#include<sdl/sdl.h>
+#include<SDL/SDL.h>
 #endif
 #endif
 
@@ -22,8 +22,13 @@ void render_func(void) {
 	while (SDL_PollEvent(&ev)) {
 	}
 	static int off = 0;
-	for (int i = 0; i < 256; i++) {
-		for (int j = 0; j < 256; j++) {
+	SDL_Rect r;
+	r.w = 16;
+	r.h = 16;
+	for (int i = 0; i < 16; i++) {
+		r.x = i*16;
+		for (int j = 0; j < 16; j++) {
+			r.y = j*16;
 #ifdef TEST_SDL_LOCK_OPTS
 			// Alpha behaves like in the browser, so write proper opaque pixels.
 			int alpha = 255;
@@ -32,6 +37,8 @@ void render_func(void) {
 			// data (and testing that it does get discarded)
 			int alpha = (i+j) % 255;
 #endif
+			SDL_SetRenderDrawColor(renderer, 0, 0, (i+off)%255, 255);
+			SDL_RenderFillRect(renderer, &r);
 			//renderer->
 			//*((Uint32*)renderer->pixels + i * 256 + j) = SDL_MapRGBA(renderer->format, i + off, j + off*2, 255-i, alpha);
 		}

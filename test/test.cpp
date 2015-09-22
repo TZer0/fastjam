@@ -3,12 +3,12 @@
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
-#include<sdl/sdl.h>
+#include<SDL.h>
 #else
 #ifdef WINDOWS
 #include "SDL2/include/SDL.h"
 #else
-#include<sdl/sdl.h>
+#include<SDL/SDL.h>
 #endif
 #endif
 
