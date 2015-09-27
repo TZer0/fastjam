@@ -23,7 +23,7 @@ int main()
 {
 	SDL_Init(SDL_INIT_VIDEO);
 
-	win = SDL_CreateWindow("Hello World", 0, 0, 256, 256, 0);
+	win = SDL_CreateWindow("Fastjam unit tests", 0, 0, 256, 256, 0);
 
 	renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 

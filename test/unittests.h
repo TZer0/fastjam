@@ -15,17 +15,21 @@ public:
 private:
 	void printResults()
 	{
-		std::cout << "Tests: " << mTests << std::endl << "Passed: " << mPassed << std::endl << "Failed: " << mFailed << std::endl;
+		std::cout << "Tests: " << mTests << std::endl << "Asserts: " << mAsserts << std::endl << "Passed: " << mPassed << std::endl << "Failed: " << mFailed << std::endl;
 	}
 
 	void initTest();
 	void initSceneTest();
+	void gridCollisionTest();
+	void irregularGridObjectTest();
 
 	void test(bool val, std::string msg)
 	{
+		mAsserts++;
 		if (val) {
 			mPassed++;
 		} else {
+			mFailed++;
 			std::cout << msg << " failed." << std::endl;
 		}
 	}
@@ -34,7 +38,6 @@ private:
 	{
 		test(val, msg);
 		if (!val) {
-			mFailed++;
 			//std::cout << "Map:" << std::endl;
 			//game.print(true);
 
@@ -45,7 +48,7 @@ private:
 			}*/
 		}
 	}
-	int mPassed, mFailed, mTests;
+	int mPassed, mFailed, mTests, mAsserts;
 };
 
 #endif // UNITTESTS_H
